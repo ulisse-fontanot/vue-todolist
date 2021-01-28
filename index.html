@@ -18,13 +18,23 @@
     </div>
     <!-- LOGO -->
 
+    <!-- INSERIMENTO -->
+    <div class="inserimento container">
+      <h2>AGGIUNGI UN PERSONAGGIO</h2>
+      <div class="ins">
+        <input id="ins" type="text" placeholder="Nuovo personaggio..." v-model="eroe" v-on:keyup.enter="addMain(eroe)">
+        <button type="button" @click="addMain(eroe)" >AGGIUNGI</button>
+      </div>
+    </div>
+    <!-- INSERIMENTO -->
+
     <!-- LISTA PRINCIPALE -->
     <div class="mainList container">
       <h2>PERSONAGGI A DISPOSIZIONE</h2>
       <ul>
         <li v-for="(eroi, index) in personaggi">
-          <span>{{index + 1}}. {{eroi}}</span>
-          <i class="fas fa-times" @click="toDelete"></i>
+          <span>{{index + 1 + ": " + eroi}}</span>
+          <i class="fas fa-times" @click="toDelete(index)" :title="index"></i>
         </li>
       </ul>
     </div>
@@ -33,11 +43,12 @@
     <!-- LISTA ELEMENTI ELIMINATI -->
     <div class="deletedList container">
       <h2>PERSONAGGI CHE HAI ELIMINATO</h2>
+      <i id="cestin" class="fas fa-trash-alt sconto" @click="destructAll"></i>
       <ul>
         <li v-for="(eroi, index) in personaggiEliminati">
-          <span>{{index + 1}}. {{eroi}}</span>
-          <i class="fas fa-times"></i>
-          <i class="fas fa-user-plus"></i>
+          <span>{{index + 1 + ": " + eroi}}</span>
+          <i class="fas fa-times"  @click="destruct(index)" :title="index"></i>
+          <i class="fas fa-user-plus" @click="toMain(index)" :title="index"></i>
         </li>
       </ul>
     </div>
