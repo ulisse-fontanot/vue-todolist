@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="css\style.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+  <title>Document</title>
+</head>
+<body>
+
+  <div id="root">
+    <!-- LOGO -->
+    <div class="logo">
+      <img src="img\logo.png" alt="logo">
+    </div>
+    <!-- LOGO -->
+
+    <!-- LISTA PRINCIPALE -->
+    <div class="mainList container">
+      <h2>PERSONAGGI A DISPOSIZIONE</h2>
+      <ul>
+        <li v-for="(eroi, index) in personaggi">
+          <span>{{index + 1}}. {{eroi}}</span>
+          <i class="fas fa-times" @click="toDelete"></i>
+        </li>
+      </ul>
+    </div>
+    <!-- LISTA PRINCIPALE -->
+
+    <!-- LISTA ELEMENTI ELIMINATI -->
+    <div class="deletedList container">
+      <h2>PERSONAGGI CHE HAI ELIMINATO</h2>
+      <ul>
+        <li v-for="(eroi, index) in personaggiEliminati">
+          <span>{{index + 1}}. {{eroi}}</span>
+          <i class="fas fa-times"></i>
+          <i class="fas fa-user-plus"></i>
+        </li>
+      </ul>
+    </div>
+    <!-- LISTA ELEMENTI ELIMINATI -->
+
+  </div>
+
+  <script src="js\script.js"></script>
+
+</body>
+</html>
