@@ -18,7 +18,8 @@ var root = new Vue({
     },
     modify(index){ //PER MODIFICARE PERSONAGGIO
       this.modifica = prompt("come lo vuoi rinominare?");
-      (this.modifica.length < 4) ? alert("troppo corto...") : this.modifica=this.personaggi[index];
+      (this.modifica.length < 4) ? alert("troppo corto...") :
+      this.personaggi.splice(index,1,this.modifica);
     },
     toDelete(index){ //MAIN TO DELETED
       this.personaggiEliminati.push(this.personaggi[index]);
@@ -41,13 +42,6 @@ var root = new Vue({
       while (this.personaggi.length > 0) {
         this.personaggiEliminati.push(this.personaggi[0]);
         this.personaggi.splice(0,1);
-      }
-    },
-    cestino(){ //ATTIVA CESTINO
-      this.element == document.getElementById("cestin")
-      if(this.personaggiEliminati.length > 0) {
-        this.element.removeclass("sconto");
-        this.element.addclass("attivo");
       }
     }
   }
