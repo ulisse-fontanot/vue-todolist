@@ -45,8 +45,8 @@
     <!-- LISTA ELEMENTI ELIMINATI -->
     <div class="deletedList container">
       <h2>PERSONAGGI CHE HAI ELIMINATO</h2>
-      <i v-if="personaggiEliminati > 0" class="fas fa-trash-alt attivo" @click="destructAll"></i>
-      <i v-else class="fas fa-trash-alt sconto" @click="destructAll"></i>
+      <i v-if="personaggiEliminati.length > 0" class="fas fa-trash-alt" @click="destructAll"></i>
+      <i v-else class="sconto"></i>
       <ul>
         <li v-for="(eroi, index) in personaggiEliminati">
           <span>{{index + 1 + ": " + eroi}}</span>
