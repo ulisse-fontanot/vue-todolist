@@ -3,6 +3,7 @@ var root = new Vue({
   data:{
     element: "",
     eroe: "",
+    modifica: "",
     personaggi:[
       "Aragorn",
       "Gandalf",
@@ -12,27 +13,37 @@ var root = new Vue({
     personaggiEliminati:[]
   },
   methods: {
-    addMain(eroe){
+    addMain(eroe){ //PER AGGIUNGERE PERSONAGGIO
       (this.eroe.length < 4) ? alert("troppo corto...") : this.personaggi.push(this.eroe);
     },
-    toDelete(index){
+    modify(index){ //PER MODIFICARE PERSONAGGIO
+      this.modifica = prompt("come lo vuoi rinominare?");
+      (this.modifica.length < 4) ? alert("troppo corto...") : this.modifica=this.personaggi[index];
+    },
+    toDelete(index){ //MAIN TO DELETED
       this.personaggiEliminati.push(this.personaggi[index]);
       alert("HAI ELIMINATO: " + this.personaggi[index]);
       this.personaggi.splice(index,1);
       console.log(this.personaggiEliminati);
     },
-    toMain(index){
+    toMain(index){ //DELETED TO MAIN
       this.personaggi.push(this.personaggiEliminati[index]);
       this.personaggiEliminati.splice(index,1);
       console.log(this.personaggi);
     },
-    destruct(index){
+    destruct(index){ //ELIMINA UNO DEFINITIVAMENTE
       this.personaggiEliminati.splice(index,1);
     },
-    destructAll(){
+    destructAll(){ //ELIMINA TUTTI DEFINITIVAMENTE
       this.personaggiEliminati.splice(0);
     },
-    cestino(){
+    spostaAll(index){ //TUTTI MAIN TO DELETED
+      while (this.personaggi.length > 0) {
+        this.personaggiEliminati.push(this.personaggi[0]);
+        this.personaggi.splice(0,1);
+      }
+    },
+    cestino(){ //ATTIVA CESTINO
       this.element == document.getElementById("cestin")
       if(this.personaggiEliminati.length > 0) {
         this.element.removeclass("sconto");

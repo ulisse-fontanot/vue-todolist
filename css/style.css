@@ -92,11 +92,11 @@ div.logo img{
   border-radius: 10px;
 }
 
-.deletedList{
+.deletedList, .mainList{
   position: relative;
 }
 
-.deletedList > i{
+.deletedList > i, .mainList > i{
   position: absolute;
   right: 20px;
   top: 20px;
@@ -107,7 +107,7 @@ div.logo img{
   padding: 10px;
 }
 
-.deletedList > i:hover{
+.deletedList > i:hover, .mainList > i:hover{
   cursor: pointer;
   color: rgb(96, 62, 28);
 }

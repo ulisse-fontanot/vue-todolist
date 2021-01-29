@@ -31,10 +31,12 @@
     <!-- LISTA PRINCIPALE -->
     <div class="mainList container">
       <h2>PERSONAGGI A DISPOSIZIONE</h2>
+      <i id="sposta" class="fas fa-trash-alt sconto" @click="spostaAll"></i>
       <ul>
         <li v-for="(eroi, index) in personaggi">
           <span>{{index + 1 + ": " + eroi}}</span>
           <i class="fas fa-times" @click="toDelete(index)" :title="index"></i>
+          <i class="fas fa-pen" @click="modify(index)" :title="index"></i>
         </li>
       </ul>
     </div>
